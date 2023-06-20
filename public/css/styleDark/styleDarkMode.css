@@ -1,4 +1,43 @@
-@media (prefers-color-scheme: dark){
+/* mode light-dark avec js */
+:root {
+    --ecritureBody: black;
+    --ecritureDiv: white;
+    --fondBody : white;
+    --fondDiv : #333;
+}
+
+body {
+    background-color: var(--fondBody);
+}
+
+h1, p, h2 {
+    color: var(--ecritureBody);
+}
+
+#home, .card, .genre, .filmGenre, .detailFilm, .formDeleteStatut, .form, .formAddPersonne, .formUpdate {
+    background-color: var(--fondDiv);
+    color: var(--ecritureDiv);
+}
+
+#home > h2, p {
+    color: var(--ecritureDiv);
+}
+
+.card > h2, h3, .list{
+    color: var(--ecritureDiv);
+}
+
+.personne, h4, .detail, .synopsis, form, label {
+    color: var(--ecritureDiv);
+}
+
+form > h2 {
+    color: var(--ecritureDiv);
+}
+
+
+/* Avec des media query qui detecte le mode choisit dans l'os */
+/* @media (prefers-color-scheme: dark){
     body {
     background-color: #333;
     }
@@ -27,4 +66,4 @@
     form > h2 {
         color: black;
     }
-}
+} */
