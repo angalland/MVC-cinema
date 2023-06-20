@@ -43,48 +43,50 @@ if (isset($_SESSION['personne'])){
 
 <!-- formulaire pour modifier ou supprimer une personne -->
 <div class="functionDiv">
-<div class="formUpdate">
-<form class="formPersonne" action='index.php?action=updatePersonneDetail&id=<?=$id?>' method='post'>
+    <div class="formUpdate">
+        <form class="formPersonne" action='index.php?action=updatePersonneDetail&id=<?=$id?>' method='post'>
 
-    <div>
-    <label for='nom'>Nom :</label>
-    <input type='text' name='nom' value="<?= $nom?>" maxlength="25">
-    </div>
+            <div>
+                <label for='nom'>Nom :</label>
+                <input type='text' name='nom' value="<?= $nom?>" maxlength="25">
+            </div>
 
-    <div>
-    <label for='prenom'>Prenom :</label>
-    <input type='text' name='prenom' value="<?= $prenom?>" maxlength="25">
-    </div>
+            <div>
+                <label for='prenom'>Prenom :</label>
+                <input type='text' name='prenom' value="<?= $prenom?>" maxlength="25">
+            </div>
 
-    <div>
-    <label for='date_naissance'>Date de naissance :</label>
-    <input class='inputDate' type='date' name='date_naissance' value="<?= $date?>">
-    </div>
+            <div>
+                <label for='date_naissance'>Date de naissance :</label>
+                <input class='inputDate' type='date' name='date_naissance' value="<?= $date?>">
+            </div>
 
-    <div>
-    <label for='sexe'>Sexe :</label>
-    <select name='sexe' id='sexe'>
-        <?php if ($detail['sexe'] == "M") {?>
-            <option value="M">Homme</option>
-            <option value="F">Femme</option><?php
-        } elseif ($detail['sexe'] == "F") {?>
-            <option value="F">Femme</option>
-            <option value="M">Homme</option><?php
-        }?>
-    </select>
-    </div>
+            <div>
+                <label for='sexe'>Sexe :</label>
+                <select name='sexe' id='sexe'>
+                    <?php if ($detail['sexe'] == "M") {?>
+                        <option value="M">Homme</option>
+                        <option value="F">Femme</option><?php
+                    } elseif ($detail['sexe'] == "F") {?>
+                        <option value="F">Femme</option>
+                        <option value="M">Homme</option><?php
+                    }?>
+                </select>
+            </div>
 
-    <div class="inputCasting"> 
-    <input type='submit' name='submitUpdatePersonneId' value='Modifier'>
-    </div>
+            <div class="inputCasting"> 
+                <input type='submit' name='submitUpdatePersonneId' value='Modifier'>
+            </div>
 
-    <div class='alert'>Attention pour pouvoir supprimer une personne, aucun statut acteur ou réalisateur  ne doit lui être associé ! Si la personne a un statut acteur/realisateur, veuillez supprimer le statut en premier       
+            <div class='alert'>
+                Attention pour pouvoir supprimer une personne, aucun statut acteur ou réalisateur  ne doit lui être associé ! Si la personne a un statut acteur/realisateur, veuillez supprimer le statut en premier       
+            </div>
+
+            <div class="inputCasting">
+                <input type='submit' name='submitDeletePersonneId' value='Supprimer'>
+            </div>
+        </form>
     </div>
-    <div class="inputCasting">
-    <input type='submit' name='submitDeletePersonneId' value='Supprimer'>
-    </div>
-</form>
-</div>
 </div>
 
 <?php }
