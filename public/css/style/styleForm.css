@@ -28,10 +28,10 @@ label {
 /* Form add role, genre, casting */
 .formRole {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    width: 400px;
+    align-items: center;
     gap: 15px;
 }
 
@@ -40,11 +40,18 @@ label {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: left;
-    width: 400px;
+    align-items: stretch;
     gap: 15px;
 }
 
 input[type='submit'] {
+    background-color: #ccd2ff;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+}
+
+button[type='submit'] {
     background-color: #ccd2ff;
     border-radius: 15px;
     width: 100px;
@@ -113,8 +120,8 @@ input[type='checkbox'] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 20%;
-    min-height: 80%px;
+    /* min-width: 20%;
+    min-height: 80%px; */
     background-color: #3d3d3d;
     border-radius: 15px;
     padding: 30px;
@@ -127,7 +134,7 @@ input[type='checkbox'] {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    /* width: 500px; */
     gap: 15px;
 }
 
