@@ -2,7 +2,6 @@
 ob_start();?>
 
 <div class="detailFilm">
-    <div>
     <img class="imgPersonne" src="public/img/imgPersonne/Aaron_Horvath.jpg"/>
     <?php
     // boucle pour afficher les données de personne de la bbd
@@ -25,10 +24,7 @@ ob_start();?>
                     }?></p>
         <?php }
     ?>
-    </div>
-
-    <div>
-        <h4>Filmographie</h4><?php
+        <h4>Filmographie :</h4><?php
         foreach ($requeteRealisateur->fetchAll() as $real){?>
         <p class="personne"><a href='index.php?action=filmById&id=<?=$real['id_film']?>'><?= $real['titre']?></a></p><?php 
         }?>      
@@ -40,7 +36,6 @@ ob_start();?>
                 Rôle : <?= $casting["nom_personnage"];?></p><?php
             }
         ?>
-    </div>
 </div>
 
 <?php
