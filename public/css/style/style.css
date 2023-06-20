@@ -1,0 +1,45 @@
+/* General */
+*{
+    font-family:'Lora', serif;
+    color: black;
+}
+
+a{
+    color: #08afff;
+    text-decoration: none!important;
+}
+
+/* Nav-bar */
+
+.uk-navbar-container{
+    background-color: #e2e2e2;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* Main */
+#main {
+    /* background-color: #818fde; */
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-bottom: 10px;
+    /* min-height: 100vh; */
+}
+
+/* conteneur div */
+#mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* min-height: 100vh; */
+}
+
+#home > h2 {
+    color: white;
+}
+
+.phome {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+}

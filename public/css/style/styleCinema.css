@@ -1,0 +1,63 @@
+/* vue home */
+#home {
+    width: 80%;
+    background-color: #3d3d3d;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* vue personne.php */
+.imgPersonne {
+    max-width: 160px;
+    max-height: 160px;
+    border-radius: 15px;
+    margin-left: 140px;
+}
+
+.personne {
+    margin: 0;
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+/* vue listGenre.php */
+.genre{
+    background-color: #3d3d3d;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+    color: white;
+}
+
+.genre:hover {
+    background-color: #ccd2ff;
+    cursor: pointer;
+}
+
+/* vue detailGenre.php */
+#filmGenre {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filmGenre {
+    background-color:#3d3d3d;
+    min-width: 10%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+}

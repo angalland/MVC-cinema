@@ -1,0 +1,28 @@
+.functionDiv {
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: center;   
+}
+
+.formUpdate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 27%;
+    min-height: 80%px;
+    background-color: #3d3d3d;
+    border-radius: 15px;
+    padding: 30px;
+    gap: 10px;
+}
+
+.alert {
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px
+}
