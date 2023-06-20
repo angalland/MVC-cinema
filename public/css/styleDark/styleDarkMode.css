@@ -1,6 +1,18 @@
 @media (prefers-color-scheme: dark){
     body {
     background-color: #333;
-    color: #f1f1f1;
+    color: black;
+    }
+
+    h1, h2, p {
+        color : white;
+    }
+
+    .card {
+        background-color: white;
+    }
+
+    .card > h2, h3, p{
+        color: black;
     }
 }
