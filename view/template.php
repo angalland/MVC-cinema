@@ -44,7 +44,8 @@
             <title><?= $titre; ?></title> 
         </head>
             
-        <body>   
+        <body class="light"> 
+                <div class="btn-toggle"></div> 
                 <nav class="uk-navbar-container" uk-navbar>
                     <div class="uk-navbar-center">   
                         <ul class="uk-navbar-nav uk-flex-middle">
