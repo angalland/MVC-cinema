@@ -83,7 +83,6 @@ input[type='submit']:hover {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: left;
-    width: 500px;
     gap: 15px;
 }
 

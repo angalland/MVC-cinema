@@ -42,7 +42,7 @@ if (isset($_SESSION['personne'])){
 }?>
 
 <!-- formulaire pour modifier ou supprimer une personne -->
-<div class='functionDiv'>
+<div class="functionDiv">
 <div class="formUpdate">
 <form class="formPersonne" action='index.php?action=updatePersonneDetail&id=<?=$id?>' method='post'>
 
@@ -86,6 +86,7 @@ if (isset($_SESSION['personne'])){
 </form>
 </div>
 </div>
+
 <?php }
 // affiche un message succes si il'yen a un
 if (isset($_SESSION['messageSucces'])) {?>
