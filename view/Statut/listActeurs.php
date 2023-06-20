@@ -1,6 +1,6 @@
 <?php ob_start();?>
 
-<p>Il y a <?= $requete->rowCount() ?> acteurs</p> <!-- compte le nombre d'acteurs dans la base de donné -->
+<p class="count">Il y a <?= $requete->rowCount() ?> acteurs</p> <!-- compte le nombre d'acteurs dans la base de donné -->
     <div id="listFilm">
         <?php
         // boucle pour lire le nom et prenom de l'acteur

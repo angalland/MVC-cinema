@@ -4,11 +4,12 @@
 //     alert ("Vous êtes en dark mode !");
 // }
 
+// fonction qui modifie les variables css celon les horaires de la journee
 function themeNuitJour(){
     const date = new Date()
     const hour = date.getHours()
 
-    if (hour < 5 || hour > 20) {
+    if (hour > 5 || hour < 20) {
         document.documentElement.style.setProperty('--ecritureBody', 'black')
         document.documentElement.style.setProperty('--ecritureDiv', 'white')
         document.documentElement.style.setProperty('--fondBody', 'white')

@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<p>Il y a <?= $requete->rowCount() ?> genres</p> <!-- compte le nombre de genre -->
+<p class="count">Il y a <?= $requete->rowCount() ?> genres</p> <!-- compte le nombre de genre -->
 <!-- affiche les genres sous forme de tableau -->
 
         <?php

@@ -3,7 +3,7 @@
 ob_start();
 ?>
 
-<p>Il y a <?= $requete->rowCount() ?> films</p> <!-- compte le nombre de film dans la bbd -->
+<p class="count">Il y a <?= $requete->rowCount() ?> films</p> <!-- compte le nombre de film dans la bbd -->
 
 <div id="listFilm">
     <?php

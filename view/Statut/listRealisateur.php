@@ -1,6 +1,6 @@
 <?php ob_start();?>
 
-<p>Il y a <?= $requete->rowCount()?> réalisateurs</p> <!-- Compte le nombre de réalisateur dans la bbd -->
+<p class="count">Il y a <?= $requete->rowCount()?> réalisateurs</p> <!-- Compte le nombre de réalisateur dans la bbd -->
 
 <!-- affiche les réalisateurs dans un tableau -->
     <div id="listFilm">

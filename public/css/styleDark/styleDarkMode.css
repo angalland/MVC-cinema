@@ -10,7 +10,7 @@ body {
     background-color: var(--fondBody);
 }
 
-h1, p, h2 {
+h1, h2, .count {
     color: var(--ecritureBody);
 }
 
