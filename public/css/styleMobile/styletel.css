@@ -20,4 +20,22 @@
     #main {
         margin:0;
     }
+
+    /* listFilm */
+    #listFilm {
+        width: 90%;
+    }
+
+    .card {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* filmbyid  */
+    .detailFilm {
+        width: 90%;
+        padding:10px;
+        border-radius: 0;
+    }
+
 }

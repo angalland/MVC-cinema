@@ -1,18 +1,30 @@
 @media (prefers-color-scheme: dark){
     body {
     background-color: #333;
-    color: black;
     }
 
-    h1, h2, p {
+    h1, p, h2 {
         color : white;
     }
 
-    .card {
+    #home, .card, .genre, .filmGenre, .detailFilm, .formDeleteStatut, .form, .formAddPersonne, .formUpdate {
         background-color: white;
+        color: black;
     }
 
-    .card > h2, h3, p{
+    #home > h2, p {
+        color: black;
+    }
+
+    .card > h2, h3, .list{
+        color: black;
+    }
+
+    .personne, h4, .detail, .synopsis, form, label {
+        color: black;
+    }
+
+    form > h2 {
         color: black;
     }
 }
