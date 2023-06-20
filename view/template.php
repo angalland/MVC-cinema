@@ -15,10 +15,10 @@
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet" />
 
             
-            <link rel="stylesheet" href="public/css/uikit-rtl.css" />
-            <link rel="stylesheet" href="public/css/uikit-rtl.min.css" />
-            <link rel="stylesheet" href="public/css/uikit.css" />
-            <link rel="stylesheet" href="public/css/uikit.min.css" />
+            <link rel="stylesheet" href="public/css/uikit/uikit-rtl.css" />
+            <link rel="stylesheet" href="public/css/uikit/uikit-rtl.min.css" />
+            <link rel="stylesheet" href="public/css/uikit/uikit.css" />
+            <link rel="stylesheet" href="public/css/uikit/uikit.min.css" />
 
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
