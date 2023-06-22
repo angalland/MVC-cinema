@@ -27,7 +27,7 @@ function themeNuitJour(){
 
 const btnToggle = document.querySelector('.btn-toggle');
 
-btnToggle.addEventListener('click', function () {
+btnToggle.addEventListener('click', () => {
 
     const body = document.body;
 
@@ -43,5 +43,6 @@ btnToggle.addEventListener('click', function () {
         body.classList.remove('light')
         btnToggle.innerHTML = 'Go Light'
     }
+}
+);
 
-})

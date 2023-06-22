@@ -39,7 +39,7 @@
             <script src="public/js/uikit.min.js"></script>
 
             <script src="public/js/js/js.js"></script>
-
+            
             <!-- $titre fournit par les pages vues -->
             <title><?= $titre; ?></title> 
         </head>
