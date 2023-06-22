@@ -15,8 +15,8 @@ if (isset($_SESSION['messageAlert'])) {
 };
 ?>
 
-<div class="formDeleteStatut">
-<!-- formulaire d'inscription -->
+<!-- <div class="formDeleteStatut"> 
+formulaire d'inscription
     <form class="formDeletePersonne" method="POST" action="index.php?action=inscription">
         <h3> Inscription </h3>
         <div>
@@ -32,6 +32,32 @@ if (isset($_SESSION['messageAlert'])) {
             <input type="submit" value='inscription'>
         </div>
     </form>
+</div> -->
+
+<div class="modal-container">
+
+    <div class="overlay modal-trigger">
+    </div>
+
+        <div class="modal">
+            <button class="close-modal modal-trigger">X</button>
+            <p class="pModal">Vous n'avez pas de compte, veuillez vous inscrire</p>
+            <form class="formDeletePersonne" method="POST" action="index.php?action=inscription">
+                <h3 class="h3Modal"> Inscription </h3>
+                <div>
+                    <input type="email" placeholder="email" name="email">
+                </div>
+                <div>
+                    <input type="password" placeholder="Mot de passe" name="password">
+                </div>
+                <div>
+                    <input type="password" placeholder="Confirmer mot de passe" name="confirmPassword">
+                </div>
+                <div class="inputCasting">
+                    <input type="submit" value='inscription'>
+                </div>
+            </form>
+        </div>
 </div>
 
 <div class="formDeleteStatut">
@@ -52,6 +78,6 @@ if (isset($_SESSION['messageAlert'])) {
 
 <?php
 $titre = "Connexion";
-$titre_secondaire = "S'inscrire ou se connecter";
+$titre_secondaire = "se connecter";
 $contenu = ob_get_clean();
 require "view/template.php";

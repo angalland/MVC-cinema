@@ -1,0 +1,51 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.modal-container.active {
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333333d3;
+    z-index: 2;
+}
+
+.modal {
+    width: 95%;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 30px;
+    background-color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.close-modal {
+    width: auto;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #ff365e;
+    color: #fff;
+}
+
+.pModal, .h3Modal {
+    color: black;
+    margin-bottom: 10px;
+}

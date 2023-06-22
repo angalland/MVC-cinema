@@ -32,6 +32,7 @@
             <link rel="stylesheet" href="public/css/style/styleTest.css" />
             <link rel="stylesheet" href="public/css/styleMobile/styletel.css" />
             <link rel="stylesheet" href="public/css/styleDark/styleDarkMode.css" />
+            <link rel="stylesheet" href="public/css/style/styleAuthentification.css" />
 
             <script src="public/js/uikit-icons.js"></script>
             <script src="public/js/uikit-icons.min.js"></script>
@@ -39,6 +40,7 @@
             <script src="public/js/uikit.min.js"></script>
 
             <script src="public/js/js/js.js"></script>
+            <script src="public/js/js/modaljs.js"></script>
             
             <!-- $titre fournit par les pages vues -->
             <title><?= $titre; ?></title> 
@@ -122,12 +124,13 @@
                             // sinon affiche ca
                            } else {?> 
                             <li class="uk-active">
-                                <a href="index.php?action=connexion">Connexion/Creer un compte</a>
+                                <a href="index.php?action=connexion">Connexion</a>
                             </li><?php 
                            }?>
                         </ul>
                     </div>
                 </nav>
+
                 <div class='burger'>
                 <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
                 </div>
