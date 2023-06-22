@@ -25,34 +25,35 @@ function themeNuitJour(){
 
 themeNuitJour()
 
-// const btnToggle = document.querySelector('.btn-toggle');
+const btnToggle = document.querySelector('.btn-toggle');
 
-// btnToggle.addEventListener('click', () => {
+btnToggle.addEventListener('click', () => {
 
-//     const body = document.body;
+    const body = document.body;
 
-//     if(body.classList.contains('dark')){
+    if(body.classList.contains('dark')){
 
-//         body.classList.add('light')
-//         body.classList.remove('dark')
-//         btnToggle.innerHTML = 'Go dark'
+        body.classList.add('light')
+        body.classList.remove('dark')
+        btnToggle.innerHTML = 'Go dark'
 
-//     } else if (body.classList.contains('light')) {
+    } else if (body.classList.contains('light')) {
 
-//         body.classList.add('dark')       
-//         body.classList.remove('light')
-//         btnToggle.innerHTML = 'Go Light'
-//     }
-// }
-// );
+        body.classList.add('dark')       
+        body.classList.remove('light')
+        btnToggle.innerHTML = 'Go Light'
+    }
+}
+);
 
 // modal inscription
 const modalContainer = document.querySelector(".modal-container");
-const modalTriggers = document.querySelectorAll("modal-trigger");
+const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-modalTriggers.forEach(modalTriggers => trigger.addEventListener("click", toggleModal))
+modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal));
 
 function toggleModal() {
-    modalContainer.classList.add("active")
-}
+    console.log("hello");
+    modalContainer.classList.toggle("active")
+};
 

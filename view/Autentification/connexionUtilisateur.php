@@ -60,7 +60,6 @@ formulaire d'inscription
         </div>
 </div>
 
-
 <div class="formDeleteStatut">
 <!-- formulaire de connexion -->
     <form class="formDeletePersonne" method="POST" action="index.php?action=login">
@@ -76,10 +75,7 @@ formulaire d'inscription
         </div>
     </form>
 
-    <div class="inputCasting modal-trigger">
-        <input type="submit" value="S'inscrire">
-    </div>
-
+    <button class="btn-open modal-trigger">S'inscrire</button>
 </div>
 
 <?php

@@ -1,8 +1,9 @@
-.modal-btn {
-    font-size: 18px;
-    display: block;
-    min-width: 150px;
-    cursor: pointer;
+.btn-open {
+    background-color: #ccd2ff;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
 }
 
 .modal-container {
@@ -10,7 +11,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    display: none;
+    display: none;  
 }
 
 .modal-container.active {

@@ -39,16 +39,14 @@
             <script src="public/js/uikit.js"></script>
             <script src="public/js/uikit.min.js"></script>
 
-            <script src="public/js/js/js.js"></script>
-            <script src="public/js/js/modaljs.js"></script>
             
             <!-- $titre fournit par les pages vues -->
             <title><?= $titre; ?></title> 
         </head>
-            
+        
         <body class="light"> 
-                <div class="btn-toggle"></div> 
-                <nav class="uk-navbar-container" uk-navbar>
+            <div class="btn-toggle">Go dark</div> 
+            <nav class="uk-navbar-container" uk-navbar>
                     <div class="uk-navbar-center">   
                         <ul class="uk-navbar-nav uk-flex-middle">
                             <!-- section list -->
@@ -82,16 +80,16 @@
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <!-- section add -->
                                         <li class="uk-active">
-                                        <a href="index.php?action=add_role_genre_casting">Ajouter un rôle - genre - casting</a>
+                                            <a href="index.php?action=add_role_genre_casting">Ajouter un rôle - genre - casting</a>
                                         </li>
                                         <li class="uk-active">
-                                        <a href="index.php?action=addPersonne">Ajouter une personne</a>
+                                            <a href="index.php?action=addPersonne">Ajouter une personne</a>
                                         </li>
                                         <li class="uk-active">
-                                        <a href="index.php?action=addFilm">Ajouter un film</a>
+                                            <a href="index.php?action=addFilm">Ajouter un film</a>
                                         </li>
                                         <li class="uk-active">
-                                        <a href="index.php?action=addGenreFilm">Ajouter un genre a un film</a>
+                                            <a href="index.php?action=addGenreFilm">Ajouter un genre a un film</a>
                                         </li>
                                         <!-- section modifier -->
                                         <li class="uk-nav-divider"></li>
@@ -122,7 +120,7 @@
                                 </div>
                                 <?php
                             // sinon affiche ca
-                           } else {?> 
+                        } else {?> 
                             <li class="uk-active">
                                 <a href="index.php?action=connexion">Connexion</a>
                             </li><?php 
@@ -130,15 +128,15 @@
                         </ul>
                     </div>
                 </nav>
-
+                
                 <div class='burger'>
-                <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+                    <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
                 </div>
                 <!-- menu burger -->
                 <div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
                     <div class="uk-offcanvas-bar">
                         <ul class="uk-nav">
-                        <li class="uk-active">
+                            <li class="uk-active">
                                 <a href="index.php?action=home">Home</a>
                             </li>                        
                             <li class="uk-active">
@@ -170,30 +168,30 @@
                                         <!-- section add -->
                                         <li class="uk-active">
                                         <a href="index.php?action=add_role_genre_casting">Ajouter un rôle - genre - casting</a>
-                                        </li>
-                                        <li class="uk-active">
+                                    </li>
+                                    <li class="uk-active">
                                         <a href="index.php?action=addPersonne">Ajouter une personne</a>
-                                        </li>
-                                        <li class="uk-active">
+                                    </li>
+                                    <li class="uk-active">
                                         <a href="index.php?action=addFilm">Ajouter un film</a>
-                                        </li>
-                                        <li class="uk-active">
+                                    </li>
+                                    <li class="uk-active">
                                         <a href="index.php?action=addGenreFilm">Ajouter un genre a un film</a>
-                                        </li>
-                                        <!-- section modifier -->
-                                        <li class="uk-nav-divider"></li>
-                                        <li class="uk-active">
-                                            <a href="index.php?action=updatePersonne">Update/Delete personne</a>
-                                        </li>
-                                        <li class="uk-active">
-                                            <a href="index.php?action=updateFilm">Update/Delete Film</a>
-                                        </li>
-                                        <li class="uk-active">
-                                            <a href="index.php?action=updateRole">Update/Delete Rôle</a>
-                                        </li>
-                                        <li class="uk-active">
-                                            <a href="index.php?action=updateGenre">Update/Delete Genre</a>
-                                        </li>
+                                    </li>
+                                    <!-- section modifier -->
+                                    <li class="uk-nav-divider"></li>
+                                    <li class="uk-active">
+                                        <a href="index.php?action=updatePersonne">Update/Delete personne</a>
+                                    </li>
+                                    <li class="uk-active">
+                                        <a href="index.php?action=updateFilm">Update/Delete Film</a>
+                                    </li>
+                                    <li class="uk-active">
+                                        <a href="index.php?action=updateRole">Update/Delete Rôle</a>
+                                    </li>
+                                    <li class="uk-active">
+                                        <a href="index.php?action=updateGenre">Update/Delete Genre</a>
+                                    </li>
                                         <!-- section delete -->
                                         <li class="uk-nav-divider"></li>
                                         <li class="uk-active">
@@ -217,15 +215,18 @@
                         </ul>
                     </div>
                 </div>
-           
+                
                 <main id="main">
                     <div id="mainDiv">
                         <h1>PDO Cinema</h1>
                         <h2><?= $titre_secondaire; ?></h2>
                         <?= $contenu; ?>
                         <!-- $titre_secondaire et $contenu fournit par les pages vue -->
-                </main>
-            </div>
-
-        </body>
-    </html>
+                    </main>
+                </div>
+                
+                <script src="public/js/js/js.js"></script>
+                <script src="public/js/js/modaljs.js"></script>
+            </body>
+            </html>
+            
