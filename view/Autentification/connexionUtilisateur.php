@@ -75,9 +75,11 @@ formulaire d'inscription
             <input type="submit" value='connexion'>
         </div>
     </form>
-    <div class="inputCasting ">
-    <input type="submit" value="S'inscrire">
+
+    <div class="inputCasting modal-trigger">
+        <input type="submit" value="S'inscrire">
     </div>
+
 </div>
 
 <?php

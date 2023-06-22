@@ -9,7 +9,7 @@ function themeNuitJour(){
     const date = new Date()
     const hour = date.getHours()
 
-    if (hour < 5 || hour > 20) {
+    if (hour > 5 || hour < 20) {
         document.documentElement.style.setProperty('--ecritureBody', 'black')
         document.documentElement.style.setProperty('--ecritureDiv', 'white')
         document.documentElement.style.setProperty('--fondBody', 'white')
@@ -50,7 +50,7 @@ themeNuitJour()
 const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll("modal-trigger");
 
-modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+modalTriggers.forEach(modalTriggers => trigger.addEventListener("click", toggleModal))
 
 function toggleModal() {
     modalContainer.classList.add("active")
