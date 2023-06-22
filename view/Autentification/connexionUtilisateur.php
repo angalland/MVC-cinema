@@ -34,11 +34,11 @@ formulaire d'inscription
     </form>
 </div> -->
 
-<div class="modal-container">
 
+<!-- Modal caché d'inscription -->
+<div class="modal-container">
     <div class="overlay modal-trigger">
     </div>
-
         <div class="modal">
             <button class="close-modal modal-trigger">X</button>
             <p class="pModal">Vous n'avez pas de compte, veuillez vous inscrire</p>
@@ -60,6 +60,7 @@ formulaire d'inscription
         </div>
 </div>
 
+
 <div class="formDeleteStatut">
 <!-- formulaire de connexion -->
     <form class="formDeletePersonne" method="POST" action="index.php?action=login">
@@ -74,6 +75,9 @@ formulaire d'inscription
             <input type="submit" value='connexion'>
         </div>
     </form>
+    <div class="inputCasting ">
+    <input type="submit" value="S'inscrire">
+    </div>
 </div>
 
 <?php
