@@ -1,7 +1,7 @@
 <?php 
 ob_start();?>
 
-<div class="detailFilm">
+<div class="detailFilm light">
 
     <?php
     // boucle pour afficher les donnée d'un film

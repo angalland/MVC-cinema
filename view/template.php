@@ -43,7 +43,7 @@
             <!-- $titre fournit par les pages vues -->
             <title><?= $titre; ?></title> 
         </head>
-        
+       
         <body class="light"> 
             <div class="btn-toggle">Go dark</div> 
             <nav class="uk-navbar-container" uk-navbar>

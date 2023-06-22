@@ -1,5 +1,5 @@
-/* mode light-dark avec js */
-:root {
+/* mode light-dark avec js celon l'heure de la journée */
+/* :root {
     --ecritureBody: black;
     --ecritureDiv: white;
     --fondBody : white;
@@ -33,7 +33,7 @@ h1, h2, .count {
 
 form > h2 {
     color: var(--ecritureDiv);
-}
+} */
 
 
 /* Avec des media query qui detecte le mode choisit dans l'os */
@@ -67,3 +67,17 @@ form > h2 {
         color: black;
     }
 } */
+
+/* mode dark-light en appuyant sur un bouton */
+body.dark {
+    background-color: #333;
+}
+
+h1.dark {
+    color: white;
+}
+
+.listFilm.dark {
+    background-color: white;
+}
+
