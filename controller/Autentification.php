@@ -3,6 +3,7 @@ namespace Controller;
 use model\Connect;
 
 
+
 class Autentification {
 
     // affiche le profil de l'utilisateur
@@ -78,6 +79,7 @@ class Autentification {
 
     // connexion de l'utilisateur
     public function login(){
+
         // filtre les données envoyés par POST
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
@@ -120,7 +122,7 @@ class Autentification {
         } else {
             $_SESSION['messageAlert'] [] = 'identifiant incorrecte';
             require "view/Autentification/connexionUtilisateur.php"; 
-        }
+        } 
     }
 
     // affiche la vue deconnexion 

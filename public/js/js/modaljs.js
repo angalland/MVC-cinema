@@ -1,8 +1,8 @@
-const modalContainer = document.querySelector('.modal-container');
-const modalTriggers = document.querySelectorAll('modal-trigger');
+// const modalContainer = document.querySelector(".modal-container");
+// const modalTriggers = document.querySelectorAll("modal-trigger");
 
-modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+// modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 
-function toggleModal() {
-    
-}
+// function toggleModal() {
+//     modalContainer.classList.toggle("active")
+// // }

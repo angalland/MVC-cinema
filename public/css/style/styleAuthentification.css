@@ -1,3 +1,10 @@
+.modal-btn {
+    font-size: 18px;
+    display: block;
+    min-width: 150px;
+    cursor: pointer;
+}
+
 .modal-container {
     position: fixed;
     top: 0;
