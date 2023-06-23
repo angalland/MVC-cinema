@@ -5,7 +5,7 @@ ob_start();
 
 <p class="count">Il y a <?= $requete->rowCount() ?> films</p> <!-- compte le nombre de film dans la bbd -->
 
-<div id="listFilm" class="light">
+<div id="listFilm">
     <?php
         foreach($requete->fetchAll() as $film) {?>
             <a href="index.php?action=filmById&id=<?= $film["id_film"]?>" class="aDiv">

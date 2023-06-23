@@ -30,32 +30,18 @@ const btnToggle = document.querySelector('.btn-toggle');
 btnToggle.addEventListener('click', () => {
 
     const body = document.body;
-    const h1 = document.h1;
-    const div = document.div;
-    console.log(body);
-    if(body.classList.contains('dark') && h1.classList.contains('dark')){
+
+    if(body.classList.contains('dark')){
 
         body.classList.add('light')
         body.classList.remove('dark')
         btnToggle.innerHTML = 'Go dark'
-
-        h1.classList.add('light')
-        h1.classList.remove('dark')
-
-        div.classList.add('light')
-        div.classList.remove('dark')
 
     } else if (body.classList.contains('light')) {
 
         body.classList.add('dark')       
         body.classList.remove('light')
         btnToggle.innerHTML = 'Go Light'
-
-        h1.classList.add('dark')
-        h1.classList.remove('light')
-
-        div.classList.add('dark')
-        div.classList.remove('light')
 
     }
 }

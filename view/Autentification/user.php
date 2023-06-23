@@ -12,10 +12,10 @@ ob_start();
     ?>
     <!-- affiche les donnée d'user -->
     <div id="home">
-        <h3>Profil</h3>
-        <p>Email : <?=$email?></p>
+        <h3 class="phome">Profil</h3>
+        <p class="phome">Email : <?=$email?></p>
         <!-- format de la date en fr + h -->
-        <p>Date d'inscription : <?=$dt->format("d/m/Y H:i") ?></p>
+        <p class="phome">Date d'inscription : <?=$dt->format("d/m/Y H:i") ?></p>
     </div>
 
 <?php

@@ -73,11 +73,108 @@ body.dark {
     background-color: #333;
 }
 
-h1.dark {
+body.dark h1 {
+   color: white; 
+}
+
+body.dark h2 {
     color: white;
 }
 
-.listFilm.dark {
+
+body.dark #home {
     background-color: white;
+    color: black;
 }
 
+body.dark .card{
+    background-color: white;
+    color: black;
+}
+
+body.dark .phome {
+    color: black;
+}
+
+body.dark #home > h2 {
+    color: black;
+}
+
+.count {
+    color: black;
+}
+
+body.dark .count {
+    color: white;
+}
+
+body.dark .list{
+    color: black;
+}
+
+body.dark .detailFilm {
+    background-color: white;
+    color: black;
+}
+
+body.dark .personne {
+    color: black;
+}
+
+body.dark h4 {
+    color: black;
+}
+
+body.dark .detail {
+    color: black;
+}
+
+body.dark .synopsis {
+    color: black;
+}
+
+body.dark form {
+    color: black;
+}
+
+body.dark label {
+    color: black;
+}
+
+body.dark .genre {
+    background-color: white;
+    color: black;
+}
+
+body.dark .filmGenre {
+    background-color: white;
+    color: black;
+}
+
+body.dark .formDeleteStatut {
+    background-color: white;
+    color: black;
+}
+
+body.dark .form{
+    background-color: white;
+    color: black;
+}
+
+body.dark .formAddPersonne {
+    background-color: white;
+    color: black;
+}
+
+body.dark .formUpdate {
+    background-color: white;
+    color: black;
+}
+
+body.dark form > h2 {
+    color: black;
+}
+
+body.dark form > h3 {
+    color: black;
+}
