@@ -39,8 +39,8 @@
     opacity: 0;
     width: 95%;
     max-width: 500px;
-    min-width: 300px;
-    padding: 30px;
+    /* min-width: 200px; */
+    /* padding: 30px; */
     background-color: #fff;
     position: absolute;
     top: 40%;
@@ -74,5 +74,9 @@
 
 .pModal, .h3Modal {
     color: black;
+    margin-bottom: 10px;
+}
+
+.inputCasting {
     margin-bottom: 10px;
 }
