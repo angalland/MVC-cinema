@@ -10,9 +10,9 @@ class PersonneController {
 
     // affiche personne
     public function affichePersonne($id) {
-
+        // connexion a la bbd
         $pdo = Connect::seConnecter();
-
+        // requete sql sur table personne
         $requete = $pdo->prepare("
         SELECT personne.prenom, personne.nom, personne.date_naissance, personne.sexe
         FROM personne
@@ -20,7 +20,7 @@ class PersonneController {
         ");
         $requete->bindparam("id", $id);
         $requete->execute();
-
+        // requete sql qur table realisateur
         $requeteRealisateur = $pdo->prepare("
         SELECT *
         FROM film
@@ -32,7 +32,7 @@ class PersonneController {
         ");
         $requeteRealisateur->bindparam("id", $id);
         $requeteRealisateur->execute();
-
+        // requete sql sur table casting
         $requeteCasting = $pdo->prepare("
         SELECT *
         FROM casting
@@ -54,6 +54,7 @@ class PersonneController {
 
     // ajoute une personne
     public function ajoutePersonne(){
+        // vérifie qu'une session user est présente
         if (isset($_SESSION['user'])){
             if (isset($_POST["submitPersonne"])){
 
@@ -68,7 +69,7 @@ class PersonneController {
                 // récupère les donnée des checkbox 
                 $realisateur = isset($_POST['realisateur']) ? true : false;
                 $acteur = isset($_POST['acteur']) ? true : false;
-
+                // connexion a la bbd et requete sql ajoute une personne
                 if ($nom && $prenom && $date && $sexe){
                     $pdo = Connect::seConnecter();
                     $requete = $pdo->prepare("
@@ -84,9 +85,9 @@ class PersonneController {
                     $requete->bindparam("date_naissance", $date);
                     $requete->bindparam("sexe", $sexe);
                     $requete->execute();
-
+                    // recupere la derniere id créer dans la bbd
                     $id_personne = $pdo->lastInsertId();
-
+                    // requete sql dans table realisateur
                     if ($realisateur) {
                         $requeteRealisateur = $pdo->prepare("
                         INSERT INTO realisateur (id_personne)
@@ -95,7 +96,7 @@ class PersonneController {
                         $requeteRealisateur->bindparam("id_personne", $id_personne);
                         $requeteRealisateur->execute();
                     }
-
+                    // requete sql dans table acteur
                     if ($acteur) {
                         $requeteActeur = $pdo->prepare("
                         INSERT INTO acteur (id_personne)
@@ -122,12 +123,13 @@ class PersonneController {
 
     // obtenir l'id d'une personne
     public function modifierPersonne(){
+        // verifie qu'une session user est disponible
         if (isset($_SESSION['user'])){
             require ("view/Personne/updateDeletePersonne.php");
             if (isset($_POST['submitUpdatePersonne'])){
 
                 $_SESSION['errors'] = [];
-
+                // récupère et filtre les données du formulaire
                 ($id = filter_input(INPUT_POST, "personne", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'La personne est incorrecte';
 
                 if ($id){
@@ -156,7 +158,7 @@ class PersonneController {
             ($prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS)) ? false : $_SESSION['errors'][] = "le prenom est incorrecte";
             ($date = filter_input(INPUT_POST, "date_naissance", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'La date est incorrecte';
             ($sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_FULL_SPECIAL_CHARS)) ? false : $_SESSION['errors'][] = "Le sexe est incorrecte";
-
+            // connexion a la bbd et requete sql modifie une personne
             if ($id && $nom && $prenom && $date && $sexe){
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
@@ -191,7 +193,7 @@ class PersonneController {
 
             // récupère et filtre les donnée du formulaire
             ($id = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'L\'id est incorrecte' ;
-
+            // connexion a la bbd et requete sql supprime une personne
             if ($id){
 
                 try {
