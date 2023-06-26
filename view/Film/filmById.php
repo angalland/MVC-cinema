@@ -64,7 +64,7 @@ if (isset($_SESSION['messageAlert'])) {
         <div>
             <!-- affiche la note moyennes des utilisateurs du film -->
             <?php foreach ($requeteNote as $note){?>
-                <p>Notes moyennes des utilisateur : <?= $note['note']?></p>
+                <p>Notes moyennes des utilisateur : <?= round($note['note'], 2)?></p>
             <?php
             }?>
             <p>Avis des utilisateurs :
