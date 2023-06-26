@@ -25,11 +25,11 @@ class FilmController {
 
     // affiche le détail des films par id
     public function detailFilm($id){
-
+        // filtre l'id récupérer en get
         $id = filter_var($id, FILTER_VALIDATE_INT);
-        
+        // connexion a la bbd
         $pdo = Connect::seConnecter();
-
+        // requete sql
         $requete = $pdo->prepare("
         SELECT titre, YEAR(date_sortie) AS annee, affiche, duree_film, synopsis, note, CONCAT(personne.prenom,' ',personne.nom) AS 'realisateur', personne.id_personne
         FROM film
@@ -70,12 +70,13 @@ class FilmController {
         ");
         $requeteCasting->bindparam("id", $id);
         $requeteCasting->execute();
-
+        // envoie les donnees sur la page filmById
         require "view/Film/filmById.php";
     }
 
     // ajoute un film
     public function ajouteFilm(){
+        // verifie qu'une session user est présente
         if (isset($_SESSION['user'])){
             if (isset($_POST["submitFilm"])){
 
@@ -89,6 +90,7 @@ class FilmController {
                 ($note = filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION)) ? false : $note = null;
                 ($id_realisateur = filter_input(INPUT_POST, "realisateur", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le réalisateur est incorrecte';
 
+                // filtre les données pour les genres
                 if (isset($_POST['genres'])){
                 $id_genres = $_POST['genres'];
                 if ($id_genres){
@@ -144,6 +146,7 @@ class FilmController {
                         }
                     }        
 
+                // connexion a la bbd et requete sql ajoute un film
                 if ($titre && $duree && $date && $id_realisateur){
                     $pdo = Connect::seConnecter();
                     $requete = $pdo->prepare("
@@ -165,11 +168,11 @@ class FilmController {
                     $requete->bindparam("synopsis", $synopsis);
                     $requete->bindparam("affiche", $affiche);
                     $requete->execute();
-
+                    // selectionne la derniere id créer dans la bbd
                     $id_film = $pdo->lastInsertId();
 
                     if (isset($id_genresSelectionnes)) {
-
+                    // boucle pour inserer dans la table posseder_genre tous les genres cocher
                     foreach ($id_genresSelectionnes as $id_genre){
                         $pdo = Connect::seConnecter();
                         $requeteGenre = $pdo->prepare("
@@ -201,12 +204,13 @@ class FilmController {
 
     // obtenir l'id d'un film
     public function modifierFilm(){
+        // verifie qu'une session user est présente
         if (isset($_SESSION['user'])){
             require ("view/Film/updateDeleteFilm.php");
             if (isset($_POST['submitUpdateFilm'])){
 
                 $_SESSION['errors'] = [];
-
+                // récupère et filtre les données du formulaire
                 ($id = filter_input(INPUT_POST, "film", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte';
 
                 if ($id){
@@ -289,7 +293,7 @@ class FilmController {
                     $affiche = "public/img/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
                     }
                 }
-
+                // connexion a la bbd et requete sql modifie un film
             if ($titre && $duree && $date && $id_realisateur){
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
@@ -313,6 +317,7 @@ class FilmController {
                 $requete->bindparam("affiche", $affiche);
                 $requete->execute();
 
+                // supprime l'ancienne affiche dans le fichier upload
                 if ($affiche) {
                     if ($ancienneAffiche){
                     unlink($ancienneAffiche);
@@ -338,7 +343,7 @@ class FilmController {
             ($id = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'L\'id est incorrecte' ;
             ($ancienneAffiche = filter_input(INPUT_POST, "ancienneAffiche", FILTER_SANITIZE_FULL_SPECIAL_CHARS)) ? false : $_SESSION['errors'][] = "L'affiche est incorrecte";
 
-
+            // connexion a la bbd et requete sql suppression du film
             if ($id){
                 try {
                 $pdo = Connect::seConnecter();
@@ -377,13 +382,14 @@ class FilmController {
 
     // ajouter un genre a un film
     public function ajouterGenreFilm(){
+        // verifie qu'une session user est disponible
         if (isset($_SESSION['user'])){
             if (isset($_POST["submitGenreFilm"])){
                 $_SESSION["errors"] = [];
-
+                // récupère et filtre les données du formulaire
                 ($id_film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte';
                 ($id_genre= filter_input(INPUT_POST, "genre", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le genre est incorrecte';
-
+                // connexion a la bbd et requete sql ajoute un genre
                 if ($id_film && $id_genre){
                     try {
                     $pdo = Connect::seConnecter();
