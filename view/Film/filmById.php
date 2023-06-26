@@ -43,8 +43,21 @@ ob_start();?>
             <?php
         }
         ?></div>
-
 </div>
+
+        <h3> Critique du publique </h3>
+
+        <div>
+        <?php
+        // boucle pour afficher les critiques du films
+        foreach($requeteCritique->fetchAll() as $critique){
+        $notes [] = $critique['note'];
+        }
+        $totalNote = array_sum($notes);
+        $nbNote = count($notes);
+        $moyenneNote = $totalNote / $nbNote;?>
+        <p><?= $moyenneNote ?></p>
+        </div>
 
 <?php
 

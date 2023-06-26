@@ -70,6 +70,17 @@ class FilmController {
         ");
         $requeteCasting->bindparam("id", $id);
         $requeteCasting->execute();
+
+        $requeteCritique = $pdo->prepare("
+        SELECT critique.avis, critique.note, user.pseudo
+        FROM critique
+        INNER JOIN user
+	        ON critique.id_user = user.id_user
+        WHERE critique.id_film = :id
+        ");
+        $requeteCritique->bindparam("id", $id);
+        $requeteCritique->execute();
+
         // envoie les donnees sur la page filmById
         require "view/Film/filmById.php";
     }
