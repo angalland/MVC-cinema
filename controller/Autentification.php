@@ -1,13 +1,14 @@
 <?php
+
+// controller autentification traite les inscription, connexion, deconnexion et profil
 namespace Controller;
 use model\Connect;
-
-
 
 class Autentification {
 
     // affiche le profil de l'utilisateur
     public function profil(){
+        // Verifie qu'une session user est bien présente
         if (isset($_SESSION['user'])){
             require "view/Autentification/user.php";
         } else {
@@ -44,7 +45,7 @@ class Autentification {
                 $requete->execute();
                 $existe = $requete->fetch(\PDO::FETCH_ASSOC);
 
-                // si $existe alors envoie un message d'erreure
+                // si $existe est vrai alors envoie un message d'erreure
                 if (($existe)){
                     $_SESSION['messageAlert'] [] = 'Cette email est déja utilisé';
 
@@ -74,7 +75,7 @@ class Autentification {
         }  else {
             $_SESSION['messageAlert'] [] = 'Inscription incorrecte';
         }        
-            require "view/Autentification/connexionUtilisateur.php";            
+            require "view/Autentification/user.php";            
     }
 
     // connexion de l'utilisateur
@@ -127,6 +128,7 @@ class Autentification {
 
     // affiche la vue deconnexion 
     public function viewDeconnexion(){
+        // verifie qu'une session user est bien présente
         if (isset($_SESSION['user'])){
             require "view/Autentification/deconnexionUtilisateur.php";
         } else {
@@ -136,14 +138,24 @@ class Autentification {
 
     // deconnexion
     public function logout(){
+        // verifie qu'une session user est bien présente
         if (isset($_SESSION['user'])){
+            // si on a appuyer sur oui
             if (!empty($_POST['deconnexion'])){
+                // filtre les donné envoyé par le formulaire
                 $deconnexion = htmlspecialchars($_POST['deconnexion'], ENT_QUOTES);
 
+                // lorque le filtre a bien fonctionné 
+                // on a appuyé sur oui
                 if ($deconnexion == 'true') {
+                    // on supprime la session user 
                     unset($_SESSION['user']);
+                    // on affiche un message de déconnexion
                     $_SESSION['messageSucces'] = 'Vous avez bien été déconnecté !';
+                    // on renvoie ver la page de connexion
                     require "view/Autentification/connexionUtilisateur.php";
+
+                // on a appuye sur non
                 } elseif ($deconnexion == 'false') {
                     $_SESSION['deconnexion'] = 'Vous restez connecté';
                     require "view/Autentification/deconnexionUtilisateur.php";
