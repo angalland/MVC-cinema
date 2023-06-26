@@ -3,7 +3,7 @@ ob_start();
 ?>
 <div id="filmGenre">
 <?php
-
+// Boucle pour afficher les details d'un film celon son genre
 foreach ($requete->fetchAll() as $detailGenre) {
     $genre=$detailGenre['nom_genre'];
     $date = $detailGenre["date_sortie"];
@@ -23,7 +23,7 @@ foreach ($requete->fetchAll() as $detailGenre) {
 
 <?php
 
-
+// verifie qu'un film possede ce genre sinon affiche un message 
 $titre = "film par genre";
 if (isset($genre)){
     $titre_secondaire = "Genre : ".$genre;

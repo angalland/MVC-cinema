@@ -125,7 +125,7 @@ if(isset($_GET['action'])){
         case 'supprimerActeurId' : $ctrlStatut->supprimerActeur($id);
         break;
 
-        // controller autentification
+        // class autentification
 
         case 'user' : $ctrlAutentification->profil();
         break;

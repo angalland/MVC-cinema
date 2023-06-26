@@ -2,6 +2,7 @@
 ob_start();
 require ("model/db-function.php");
 ?>
+<!-- formulaire pour supprimer un realisateur -->
 <div class="formDeleteStatut">
     <form class="formDeletePersonne" action='index.php?action=deleteActeurRealisateur' method='post'>
         <h2>Supprimer un réalisateur</h2>
@@ -26,6 +27,7 @@ require ("model/db-function.php");
     </form>
 </div>
 
+<!-- formulaire pour supprimer un acteur -->
 <div class="formDeleteStatut">
     <form class="formDeletePersonne" action='index.php?action=deleteActeurRealisateur' method='post'>
         <h2>Supprimer un acteur</h2>

@@ -3,16 +3,15 @@ ob_start();
 ?>
 
 <p class="count">Il y a <?= $requete->rowCount() ?> genres</p> <!-- compte le nombre de genre -->
-<!-- affiche les genres sous forme de tableau -->
 
-        <?php
+<?php
         // boucle pour afficher le nom du genre
-            foreach($requete->fetchAll() as $genre) {?>
-                    <a href="index.php?action=detailGenre&id=<?= $genre["id_genre"]?>">
-                    <div class="genre">
-                    <?= $genre["nom_genre"] ?>
-                    </div>
-                    </a>              
+        foreach($requete->fetchAll() as $genre) {?>
+                <a href="index.php?action=detailGenre&id=<?= $genre["id_genre"]?>">
+                        <div class="genre">
+                                <?= $genre["nom_genre"] ?>
+                        </div>
+                </a>              
         <?php  }?>
 
 

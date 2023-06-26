@@ -4,7 +4,7 @@ ob_start();
 ?>
 
 <p class="count">Il y a <?= $requete->rowCount() ?> films</p> <!-- compte le nombre de film dans la bbd -->
-
+<!-- boucle pour afficher les donnees de la requete sql -->
 <div id="listFilm">
     <?php
         foreach($requete->fetchAll() as $film) {?>

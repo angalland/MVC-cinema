@@ -41,7 +41,6 @@ formulaire d'inscription
     </div>
         <div class="modal">
             <button class="close-modal modal-trigger">X</button>
-            <!-- <p class="pModal">Vous n'avez pas de compte, veuillez vous inscrire</p> -->
             <form class="formDeletePersonne" method="POST" action="index.php?action=inscription">
                 <h3 class="h3Modal"> Inscription </h3>
                 <div>

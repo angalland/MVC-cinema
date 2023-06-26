@@ -44,8 +44,10 @@
             <title><?= $titre; ?></title> 
         </head>
        
-        <body class="light"> 
+        <body class="light">
+            <!-- bouton dark/light mode -->
             <div class="btn-toggle">Go dark</div> 
+            <!-- navBar -->
             <nav class="uk-navbar-container" uk-navbar>
                     <div class="uk-navbar-center">   
                         <ul class="uk-navbar-nav uk-flex-middle">
@@ -161,10 +163,7 @@
                                     <a href="index.php?action=user">Profil</a>
                                 </li>
                                 <!-- section admin -->
-                                <!-- <div>Admin <span uk-navbar-parent-icon></span></div> -->
                                 <div class='admin'>Admin</div>
-                                <!-- <div class="uk-navbar-dropdown"> -->
-                                    <!-- <ul class="uk-nav uk-navbar-dropdown-nav"> -->
                                         <!-- section add -->
                                         <li class="uk-active">
                                         <a href="index.php?action=add_role_genre_casting">Ajouter un rôle - genre - casting</a>

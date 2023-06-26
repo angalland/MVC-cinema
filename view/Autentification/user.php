@@ -19,6 +19,7 @@ ob_start();
     </div>
 
 <?php
+// affiche les messages de succes et d'alert si il y en a
 if (isset($_SESSION['messageSucces'])) {?>
     <p class="uk-alert-success"><?= $_SESSION['messageSucces'];?></p><?php
     unset($_SESSION['messageSucces']);

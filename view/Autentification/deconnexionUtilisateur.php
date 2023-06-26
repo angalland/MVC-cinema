@@ -2,6 +2,7 @@
 
 ob_start();
 ?>
+<!-- formulaire de deconnexion -->
 <div class="formDeleteStatut">
     <form class="formDeletePersonne" method="POST" action="index.php?action=logout">
         <h3>Voulez-vous vous deconnecter ?</h3>
@@ -15,6 +16,7 @@ ob_start();
 </div>
 
 <?php
+// affiche les messages de succes et de deconnexion si il'y en a
 if (isset($_SESSION['messageSucces'])) {?>
     <p class="uk-alert-success"><?= $_SESSION['messageSucces'];?></p><?php
     unset($_SESSION['messageSucces']);
