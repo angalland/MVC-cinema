@@ -45,20 +45,27 @@ ob_start();?>
         ?></div>
 </div>
 
+<div id='critique'>
         <h3> Critique du publique </h3>
 
         <div>
+            <?php foreach ($requeteNote as $note){?>
+                <p>Notes moyennes des utilisateur : <?= $note['note']?></p>
+            <?php
+            }?>
+            <p>Avis des utilisateurs :
         <?php
         // boucle pour afficher les critiques du films
-        foreach($requeteCritique->fetchAll() as $critique){
-        $notes [] = $critique['note'];
-        }
-        $totalNote = array_sum($notes);
-        $nbNote = count($notes);
-        $moyenneNote = $totalNote / $nbNote;?>
-        <p><?= $moyenneNote ?></p>
+        foreach($requeteCritique->fetchAll() as $critique){?>
+        <div class="avis">
+            <p class="pAvis"><?= $critique['pseudo']?> : <?= $critique['avis']?></p>
         </div>
+            <?php
+        }?>
+        </div>
+</div>
 
+<div>
 <?php
 
 

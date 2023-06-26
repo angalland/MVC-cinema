@@ -1,0 +1,22 @@
+#critique {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+.avis {
+    width: 300px;
+    background-color: blue;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.pAvis {
+    color: white;
+    padding: 5px;
+    text-align: justify;
+}
+

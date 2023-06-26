@@ -33,6 +33,7 @@
             <link rel="stylesheet" href="public/css/styleMobile/styletel.css" />
             <link rel="stylesheet" href="public/css/styleDark/styleDarkMode.css" />
             <link rel="stylesheet" href="public/css/style/styleAuthentification.css" />
+            <link rel="stylesheet" href="public/css/style/styleCritique.css" />
 
             <script src="public/js/uikit-icons.js"></script>
             <script src="public/js/uikit-icons.min.js"></script>

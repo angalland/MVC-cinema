@@ -43,6 +43,7 @@ class FilmController {
         $requete->bindparam("id", $id);
         $requete->execute();
 
+        // sql requete pour recuperer les donnée de la table posseder_genre, genre, et film
         $requeteGenre = $pdo->prepare("
         SELECT *
         FROM posseder_genre
@@ -55,6 +56,7 @@ class FilmController {
         $requeteGenre->bindparam("id", $id);
         $requeteGenre->execute();
 
+        // sql requete pour recuperer les donnée de la table casting, role, acteur, personne et film
         $requeteCasting = $pdo->prepare("
         SELECT personnage.nom_personnage, CONCAT(personne.prenom,' ',personne.nom) AS acteur, casting.id_film, casting.id_acteur, casting.id_personnage, personne.id_personne
         FROM casting
@@ -71,8 +73,9 @@ class FilmController {
         $requeteCasting->bindparam("id", $id);
         $requeteCasting->execute();
 
+        // sql requete pour recuperer les donnée de la table critique et user
         $requeteCritique = $pdo->prepare("
-        SELECT critique.avis, critique.note, user.pseudo
+        SELECT *
         FROM critique
         INNER JOIN user
 	        ON critique.id_user = user.id_user
@@ -80,6 +83,15 @@ class FilmController {
         ");
         $requeteCritique->bindparam("id", $id);
         $requeteCritique->execute();
+
+        // sql requete pour récupérer la moyenne des notes user d'un film
+        $requeteNote = $pdo->prepare("
+        SELECT AVG(critique.note) AS note
+        FROM critique
+        WHERE critique.id_film = :id
+        ");
+        $requeteNote->bindparam("id", $id);
+        $requeteNote->execute();
 
         // envoie les donnees sur la page filmById
         require "view/Film/filmById.php";
