@@ -17,7 +17,8 @@ class CritiqueController {
 
 
         if ($id_film && $id_user && $avis && $note) {
-            // connexion a la bbd
+            // connexion a la bbd$
+            try {
             $pdo = Connect::seConnecter();
             // requete sql
             $requete = $pdo->prepare("
@@ -33,8 +34,12 @@ class CritiqueController {
             $requete->bindparam("avis", $avis);
             $requete->bindparam("note", $note);
             $requete->execute();
+            $_SESSION['messageSucces'] = "Votre avis a bien été pris en compte";
+            } catch (\PDOException $ex) {
+                $_SESSION['messageAlert'] [] = 'Vous avez déja un avis sur ce film, vous ne pouvez pas en donner un second';
+            }
 
         }
-        header("Refresh:0");
+        header("Location:index.php?action=filmById&id=$id_film");
     }
 } 

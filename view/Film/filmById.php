@@ -1,5 +1,17 @@
 <?php 
-ob_start();?>
+ob_start();
+
+if (isset($_SESSION['messageSucces'])) {?>
+    <p class="uk-alert-success"><?= $_SESSION['messageSucces'];?></p><?php
+    unset($_SESSION['messageSucces']);
+};
+// affiche un message d'alert si il y en a un puis le suprime
+if (isset($_SESSION['messageAlert'])) {
+    foreach ($_SESSION['messageAlert'] as $alert){?>
+        <div class='alert'><?= $alert ?></div><?php
+        unset($_SESSION['messageAlert']);
+    }
+};?>
 
 <div class="detailFilm light">
 
@@ -67,6 +79,7 @@ ob_start();?>
         </div>
 </div>
 
+<!-- affiche un bouton donnez son avis si une session user est présente -->
 <?php if (isset($_SESSION['user'])!= null) {?>
 <div>
     <button class="btn-open modal-trigger inputModal">Donnez votre avis</button>
@@ -96,7 +109,7 @@ ob_start();?>
 
 <?php
 } else {?>
-    <p class="count"> Vous devez etre connecter pour donner votre avis sur le film</p>
+    <p class="count"> Vous devez être connecter pour donner votre avis sur le film</p>
 <?php
 }
 
