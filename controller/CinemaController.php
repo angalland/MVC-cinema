@@ -16,6 +16,7 @@ class CinemaController {
        
     // affiche la page add_role_genre_casting
     public function affiche_role_genre_casting(){
+        // si une session user est presente
         if (isset($_SESSION['user'])){
             require "view/Cinema/add_role_genre_casting.php";
         } else {
@@ -25,8 +26,9 @@ class CinemaController {
 
     // affiche les genres
     public function afficherGenre(){
-        
+        // on se connecte a la bbd
         $pdo = Connect::seConnecter();
+        // on fait une requete a la bbd
         $requete = $pdo->query("
             SELECT *
             FROM genre
@@ -38,11 +40,11 @@ class CinemaController {
 
     // affiche les films celon le genre
     public function afficherGenreId($id) {
-
+        // on filtre l'id obtenue en get
         $id = filter_var($id, FILTER_VALIDATE_INT);
-        
+        // on se connecte a la bbd
         $pdo = Connect::seConnecter();
-
+        // on fait une requete a la bbd celon l'id
         $requete = $pdo->prepare("
         SELECT *
         FROM posseder_genre
@@ -54,7 +56,7 @@ class CinemaController {
         ");
         $requete->bindparam("id", $id);
         $requete->execute();
-
+        // on transmet les données récupérer a la page detailGenre
         require "view/Cinema/detailGenre.php";
     }
     
@@ -126,16 +128,21 @@ class CinemaController {
 
     // ajoute un casting 
     public function ajouteCasting(){
+        //on recupére les donnée du formulaire casting
         if (isset($_POST["submitCasting"])){
             $_SESSION["errors"] = [];
 
+            // filtre les données récupérer
             ($id_film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte';
             ($id_acteur = filter_input(INPUT_POST, "acteur", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'L\' acteur est incorrecte';
             ($id_personnage = filter_input(INPUT_POST, "role", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le rôle est incorrecte';
 
+            // si les données sont valides
             if ($id_film && $id_acteur && $id_personnage){
+                // connexion a la bbd
                 try {
                 $pdo = Connect::seConnecter();
+                // requete sql ajout d'un casting
                 $requete = $pdo->prepare("
                 INSERT INTO casting 
                 (id_film, id_acteur, id_personnage)
@@ -164,16 +171,16 @@ class CinemaController {
     // -------------------------------- Update ----------------------------------------
     // recupere l'id d'un role
     public function modifierRole(){
-
+        // verifie qu'il y a bien une session user
         if (isset($_SESSION['user'])){
         require ("view/Cinema/updateDeleteRole.php");
-
+            // récupére les données de updateRole
             if (isset($_POST['submitUpdateRole'])){
 
                 $_SESSION['errors'] = [];
-
+                // filtre les données
                 ($id = filter_input(INPUT_POST, "role", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte';
-
+                // applique la fonction formUpdateRole si l'id est validé
                 if ($id){
                     $_SESSION['role'] = $id;
                     formUpdateRole ($id);
@@ -200,6 +207,7 @@ class CinemaController {
             ($id = filter_var($id, FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le role est incorrecte' ;
             ($nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS)) ? false : $_SESSION['errors'][] = "Le nom est incorrecte";
             
+            // connexion a la bbd et requete sql
             if ($id && $nom){
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
@@ -224,9 +232,10 @@ class CinemaController {
         // supprime le role
         if (isset($_POST["submitDeleteRoleId"])){
             $_SESSION["errors"] = [];
-
+            // récupère et filtre les donnée du formulaire
             ($id = filter_var($id, FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le role est incorrecte' ;
 
+            // connexion a la bbd et requete sql
             if ($id){
                 try {
                 $pdo = Connect::seConnecter();
@@ -253,14 +262,17 @@ class CinemaController {
 
     // recupere l'id d'un genre
     public function modifierGenre(){
+        // vérifie qu'une session user est bien présente
         if (isset($_SESSION['user'])){
             require ("view/Cinema/updateDeleteGenre.php");
+
             if (isset($_POST['submitUpdateGenre'])){
 
                 $_SESSION['errors'] = [];
-
+                // récupère les donnée du formulaire et les filtres
                 ($id = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le genre est incorrecte';
 
+                // fait appelle a la fonction formUpdateGenre
                 if ($id){
                     $_SESSION['genre'] = $id;
                     formUpdateGenre ($id);
@@ -282,10 +294,10 @@ class CinemaController {
         if (isset($_POST["submitUpdateGenreId"])){
 
             $_SESSION["errors"] = [];
-
+            // récupère et filtre les données du formulaire
             ($id = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'Le genre est incorrecte' ;
             ($nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS)) ? false : $_SESSION['errors'][] = "Le nom est incorrecte";
-            
+            // connexion a la bbd et requete sql
             if ($id && $nom){
 
                 $pdo = Connect::seConnecter();
@@ -311,9 +323,9 @@ class CinemaController {
         // supprime le genre
         if (isset($_POST["submitDeleteGenreId"])){
             $_SESSION["errors"] = [];
-
+            // récupère et filtre les données du formulaire
             ($id = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'Le genre est incorrecte' ;
-
+            // connexion a la bbd et requete sql
             if ($id){
 
                 try {
@@ -343,12 +355,13 @@ class CinemaController {
 
     // supprimer un film-Genre
     public function modifierFilmGenre(){
+        // verifie qu'une session user est présente
         if (isset($_SESSION['user'])){
             require ("view/Cinema/deleteFilmGenre.php");
             if (isset($_POST['submitdeleteFilmGenre'])){
 
                 $_SESSION['errors'] = [];
-
+                // récupère les données du formulaire et les filtres
                 ($id_film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte';
 
                 if ($id_film){
@@ -370,10 +383,10 @@ class CinemaController {
     public function supprimerFilmGenreId($id){
         if (isset($_POST["submitDeleteFilmGenreId"])){
             $_SESSION["errors"] = [];
-
+            // récupère et filtres les données du formulaire
             ($id_film = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte' ;
             ($id_genre = filter_input(INPUT_POST, "id_genre", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le genre est incorrecte';
-
+            // connexion a la bbd et requete sql
             if ($id_film && $id_genre){
 
                 $pdo = Connect::seConnecter();
@@ -400,12 +413,13 @@ class CinemaController {
     // -------------------------------- Delete -------------------------------------------
     // obtenir l'id d'un film
     public function modifierCasting(){
+        // verifie qu'une session user est présente
         if (isset($_SESSION['user'])){
             require ("view/Cinema/deleteCasting.php");
             if (isset($_POST['submitdeleteCasting'])){
 
                 $_SESSION['errors'] = [];
-
+                // filtre les données du formulaire
                 ($id_film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte';
 
                 if ($id_film){
@@ -427,10 +441,10 @@ class CinemaController {
     public function supprimerCasting($id){
         if (isset($_POST["submitDeleteCastingId"])){
             $_SESSION["errors"] = [];
-
+            // récupère et filtre les données du formulaire
             ($id_film = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'Le film est incorrecte' ;
             ($id_acteur = filter_input(INPUT_POST, "id_acteur", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'L\'acteur est incorrecte';
-
+            // connexion a la bbd et requete sql
             if ($id_film && $id_acteur){
 
                 $pdo = Connect::seConnecter();
