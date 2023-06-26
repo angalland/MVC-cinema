@@ -9,6 +9,7 @@ use controller\CinemaController;
 class StatutController {
     // affiche les réalisateurs
     public function listRealisateur() {
+        // connexion a la bbd et requete sql 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
         SELECT  CONCAT(personne.prenom,' ',personne.nom) as realisateur, personne.id_personne
@@ -24,6 +25,7 @@ class StatutController {
 
     // affiche les acteurs
     public function afficheActeurs() {
+        // connexion a la bbd et requete sql
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
         SELECT  CONCAT(personne.prenom,' ',personne.nom) AS acteur, personne.id_personne
@@ -40,13 +42,14 @@ class StatutController {
 
     // recupere l'id d'un statut acteur ou un realisateur
     public function supprimerActeurRealisateur() {
+        // vérifie qu'une session user soit présente
         if (isset($_SESSION['user'])){
             require ("view/Statut/deleteActeurRealisateur.php");
 
             $_SESSION['errors'] = [];
 
             if (isset($_POST['submitDeleteRealisateur'])){
-                
+                // récupère et filtre les données du formulaire
                 ($id = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'Le realisateur est incorrecte';
 
                 if ($id){
@@ -61,7 +64,7 @@ class StatutController {
             }
 
             if (isset($_POST['submitDeleteActeur'])){
-
+                // récupère et filtre les données du formulaire
                 ($id = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_NUMBER_INT)) ? false : $_SESSION['errors'][] = 'L\'acteur est incorrecte';
 
                 if ($id){
@@ -85,9 +88,9 @@ class StatutController {
         if (isset($_POST["submitDeleteRealisateurId"])){
             
             $_SESSION["errors"] = [];
-
+            // récupère et filtre les données
             ($id = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'L\'id est incorrecte';
-
+            // connexion a la bbd et requete sql suppression realisateur
             if ($id){
 
                 try {
@@ -121,9 +124,9 @@ class StatutController {
         if (isset($_POST["submitDeleteActeurId"])){
 
             $_SESSION["errors"] = [];
-
+            // recupere et filtre les données du formulaire
             ($id = filter_var($id, FILTER_VALIDATE_INT)) ? false : $_SESSION['errors'][] = 'L\'id est incorrecte' ;
-
+            // connexion a la bbd et requete sql suppression acteur
             if ($id){
 
                 try {
