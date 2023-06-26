@@ -67,8 +67,9 @@ ob_start();?>
         </div>
 </div>
 
+<?php if (isset($_SESSION['user'])!= null) {?>
 <div>
-    <button class="btn-open modal-trigger">Donnez votre avis</button>
+    <button class="btn-open modal-trigger inputModal">Donnez votre avis</button>
 </div>
 
 <div class="modal-container">
@@ -76,7 +77,7 @@ ob_start();?>
     </div>
         <div class="modal">
             <button class="close-modal modal-trigger">X</button>
-            <form class="utilisateur" method="POST" action="index.php?action=inscription">
+            <form class="utilisateur" method="POST" action="index.php?action=avis&id=<?= $_SESSION['id']?>">
                 <h3 class="h3Modal"> Votre avis </h3>
                 <div class='divUtilisateur'>
                     <label for="avis" class='labelModal'>Avis :</label>
@@ -92,8 +93,12 @@ ob_start();?>
             </form>
         </div>
 </div>
-<?php
 
+<?php
+} else {?>
+    <p class="count"> Vous devez etre connecter pour donner votre avis sur le film</p>
+<?php
+}
 
 $titre = "Détail du film";
 $titre_secondaire = "Détail du film";

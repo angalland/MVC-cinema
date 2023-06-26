@@ -43,6 +43,7 @@ class FilmController {
         $requete->bindparam("id", $id);
         $requete->execute();
 
+
         // sql requete pour recuperer les donnée de la table posseder_genre, genre, et film
         $requeteGenre = $pdo->prepare("
         SELECT *
@@ -92,6 +93,8 @@ class FilmController {
         ");
         $requeteNote->bindparam("id", $id);
         $requeteNote->execute();
+
+        $_SESSION['id'] = $id;
 
         // envoie les donnees sur la page filmById
         require "view/Film/filmById.php";

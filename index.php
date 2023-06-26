@@ -6,6 +6,7 @@ use Controller\FilmController;
 use Controller\PersonneController;
 use Controller\StatutController;
 use Controller\Autentification;
+use Controller\CritiqueController;
 
 // autocharge les classes du projet
 spl_autoload_register(function($class_name) {
@@ -18,6 +19,7 @@ $ctrlFilm = new FilmController();
 $ctrlPersonne = new PersonneController();
 $ctrlStatut = new StatutController();
 $ctrlAutentification = new Autentification();
+$ctrlCritique = new CritiqueController();
 
 // renvoie la valeur de $id si $_GET["id] est vrai sinon renvoie null
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
@@ -144,6 +146,11 @@ if(isset($_GET['action'])){
         break;
         
         case 'logout' : $ctrlAutentification->logout();
+        break;
+
+        // class critique
+
+        case'avis' : $ctrlCritique->addAvis($id);
         break;
 
     }   
