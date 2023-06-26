@@ -20,3 +20,34 @@
     text-align: justify;
 }
 
+/* formulaire d'avis */
+
+.utilisateur {
+    width: 100%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.labelModal{
+    color: black;
+}
+
+.inputModal {
+    width: 100%!important;
+    margin-top: 5px;
+}
+
+.divUtilisateur {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:5px;
+}
+
+.utilisateurTextarea {
+    height: 120px;
+    width: 350px;
+}

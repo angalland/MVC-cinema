@@ -45,10 +45,12 @@ ob_start();?>
         ?></div>
 </div>
 
+<!-- affiche les critiques utilisateurs du film -->
 <div id='critique'>
         <h3> Critique du publique </h3>
 
         <div>
+            <!-- affiche la note moyennes des utilisateurs du film -->
             <?php foreach ($requeteNote as $note){?>
                 <p>Notes moyennes des utilisateur : <?= $note['note']?></p>
             <?php
@@ -66,6 +68,30 @@ ob_start();?>
 </div>
 
 <div>
+    <button class="btn-open modal-trigger">Donnez votre avis</button>
+</div>
+
+<div class="modal-container">
+    <div class="overlay modal-trigger">
+    </div>
+        <div class="modal">
+            <button class="close-modal modal-trigger">X</button>
+            <form class="utilisateur" method="POST" action="index.php?action=inscription">
+                <h3 class="h3Modal"> Votre avis </h3>
+                <div class='divUtilisateur'>
+                    <label for="avis" class='labelModal'>Avis :</label>
+                    <textarea name="avis" id="avis" maxlength="500" placeholder="500 caractère maximum" class="utilisateurTextarea"></textarea>
+                </div>
+                <div>
+                    <label for='note' class='labelModal'>Note :</label>
+                    <input class="note" type='number' id="note" name='note' min="0" max="5" step="0.01">
+                </div>
+                <div>
+                    <input type="submit" value='Donnez son avis' class="inputModal">
+                </div>
+            </form>
+        </div>
+</div>
 <?php
 
 
