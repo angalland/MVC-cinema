@@ -178,3 +178,8 @@ body.dark form > h2 {
 body.dark form > h3 {
     color: black;
 }
+
+body.dark .btn-toggle{
+    background-color: white;
+    color: black;
+}

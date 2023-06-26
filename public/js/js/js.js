@@ -39,6 +39,7 @@ btnToggle.addEventListener('click', () => {
         body.classList.remove('dark')
         btnToggle.innerHTML = 'Go dark'
         localStorage.setItem("mode", "light")
+        localStorage.setItem("text", "Go Dark")
 
     } else if (body.classList.contains('light')) {
 
@@ -46,14 +47,22 @@ btnToggle.addEventListener('click', () => {
         body.classList.remove('light')
         btnToggle.innerHTML = 'Go Light'
         localStorage.setItem("mode", "dark")
+        localStorage.setItem("text", "Go Light")
 
     }
 });
 
 // sauvegarde du mode dans le localstorage
 if (localStorage.getItem("mode") != null) {
+
     const body = document.body;
+    const btnToggle = document.querySelector('.btn-toggle');
+
     body.classList.add(localStorage.getItem('mode'))
+    btnToggle.innerHTML = localStorage.getItem('text')
+} else {
+    body.classList.add('light')
+    btnToggle.innerHTML = 'Go Dark'
 }
 
 // modal inscription
