@@ -25,6 +25,8 @@
 
 // themeNuitJour()
 
+
+// dark-mode
 const btnToggle = document.querySelector('.btn-toggle');
 
 btnToggle.addEventListener('click', () => {
@@ -36,16 +38,23 @@ btnToggle.addEventListener('click', () => {
         body.classList.add('light')
         body.classList.remove('dark')
         btnToggle.innerHTML = 'Go dark'
+        localStorage.setItem("mode", "light")
 
     } else if (body.classList.contains('light')) {
 
         body.classList.add('dark')       
         body.classList.remove('light')
         btnToggle.innerHTML = 'Go Light'
+        localStorage.setItem("mode", "dark")
 
     }
+});
+
+// sauvegarde du mode dans le localstorage
+if (localStorage.getItem("mode") != null) {
+    const body = document.body;
+    body.classList.add(localStorage.getItem('mode'))
 }
-);
 
 // modal inscription
 const modalContainer = document.querySelector(".modal-container");
