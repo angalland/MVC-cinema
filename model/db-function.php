@@ -172,7 +172,7 @@ function genreId($id){
     $genres = $requete->fetchAll();
     return $genres;
 }
-
+// recupere les données de casting via acteur et personne
 function castingByActeur($id) {
     $pdo = Connect::seConnecter();
     $requete = $pdo->prepare("
@@ -189,7 +189,7 @@ function castingByActeur($id) {
     $acteurs = $requete->fetchAll();
     return $acteurs;
 }
-
+// recupere les données de posseder_genre par id de film
 function possederGenreById($id) {
     $pdo = Connect::seConnecter();
     $requete = $pdo->prepare("

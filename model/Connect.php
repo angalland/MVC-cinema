@@ -12,6 +12,7 @@ abstract class Connect {
     const PASS = "";
 
     public static function seConnecter() {
+        // connexion a la bbd
         try {
             return new \PDO(
                 "mysql:host=".self::HOST.";dbname=".self::DB.";charset=utf8", self::USER, self::PASS);
